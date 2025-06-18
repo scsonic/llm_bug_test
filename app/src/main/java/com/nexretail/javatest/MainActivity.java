@@ -47,7 +47,7 @@ public class MainActivity extends AppCompatActivity {
 
         LlmInference.LlmInferenceOptions options = LlmInference.LlmInferenceOptions.builder()
                 //.setModelPath("/sdcard/Download/gemma3-1b-it-int4.task")
-                .setModelPath("/sdcard/Download/gemma-3n-E4B-it-int4.task")
+                .setModelPath("/sdcard/Download/gemma-3n-E2B-it-int4.task")
                 .setMaxTokens(4096)
                 .setPreferredBackend(LlmInference.Backend.GPU)
                 .build();
@@ -69,6 +69,7 @@ public class MainActivity extends AppCompatActivity {
             String question = maths.get((int)(Math.random() * maths.size()));
             session.addQueryChunk(question);
             String res = session.generateResponse();
+            Log.i(TAG, "Test " + i) ;
             Log.i(TAG, "user:  " + question) ;
             if ( res.contains("1000")){
                 Log.i(TAG,  "model:" + res);
